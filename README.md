@@ -45,17 +45,6 @@ pip install -r requirements.txt
 # (Add specific usage examples from your implementation)
 ```
 
-## Project Structure
-
-```
-├── src/
-│   └── main implementation files
-├── examples/
-│   └── example usage and demonstrations
-├── config/
-│   └── configuration files
-└── README.md
-```
 
 ## Configuration
 
@@ -83,15 +72,7 @@ Include some example prompts and their usage:
 
 [Uttam-Mahata](https://github.com/Uttam-Mahata)
 
-## License
 
-This project is available for use under standard open source terms.
-
-## Acknowledgments
-
-- Google's Gemini API team
-- Contributors and testers
-- Open source community
 
 ## Last Updated
 
