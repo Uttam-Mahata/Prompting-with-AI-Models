@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interacting with Grok Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-50 to-blue-100 min-h-screen font-sans flex items-center justify-center">
+
+  <div class="container max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Grok Chatbot</h1>
+
+    <!-- Chat Input Section -->
+    <form method="POST" action="/" class="space-y-4">
+      <textarea
+        name="message"
+        rows="4"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent placeholder-gray-500"
+        placeholder="Ask Grok something..."></textarea>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <!-- User Message Section -->
+    {% if user_message %}
+    <div class="mt-6">
+      <h2 class="text-lg font-semibold text-gray-700">Your Question:</h2>
+      <div class="p-4 bg-gray-100 rounded-lg shadow-inner">
+        <p>{{ user_message }}</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Response Section -->
+    {% if response_message %}
+    <div class="mt-6">
+      <h2 class="text-lg font-semibold text-gray-700">Grok's Response:</h2>
+      <div class="p-4 bg-gray-100 rounded-lg shadow-inner prose max-w-none" id="response-content">
+        {{ response_message|safe }}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- MathJax Rendering -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      MathJax.typeset();
+    });
+
+    // Re-render MathJax when content updates
+    const responseContent = document.getElementById("response-content");
+    const observer = new MutationObserver(function () {
+      MathJax.typeset();
+    });
+    if (responseContent) {
+      observer.observe(responseContent, { childList: true });
+    }
+  </script>
+
+</body>
+</html>

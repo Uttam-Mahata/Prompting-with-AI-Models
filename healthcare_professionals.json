@@ -1,0 +1,20 @@
+{
+    "1": {
+        "name": "Dr. John Smith",
+        "specialty": "General Physician",
+        "location": "123 Main Street",
+        "phone": "555-1234"
+    },
+    "2": {
+        "name": "Dr. Jane Doe",
+        "specialty": "Physiotherapist",
+        "location": "456 Oak Street",
+        "phone": "555-5678"
+    },
+    "3": {
+        "name": "Dr. Michael Brown",
+        "specialty": "Cardiologist",
+        "location": "789 Pine Street",
+        "phone": "555-9012"
+    }
+}
